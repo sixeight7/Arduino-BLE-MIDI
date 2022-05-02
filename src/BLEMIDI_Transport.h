@@ -14,13 +14,6 @@ BEGIN_BLEMIDI_NAMESPACE
 
 using namespace MIDI_NAMESPACE;
 
-// As specified in
-// Specification for MIDI over Bluetooth Low Energy (BLE-MIDI)
-// Version 1.0a, November 1, 2015
-// 3. BLE Service and Characteristics Definitions
-static const char *const SERVICE_UUID        = "03b80e5a-ede8-4b33-a751-6ce34ec4c700";
-static const char *const CHARACTERISTIC_UUID = "7772e5db-3868-4112-a1a9-f2669d106bf3";
-
 #define MIDI_TYPE 0x80
 
 template <class T, class _Settings = DefaultSettings>
@@ -414,6 +407,7 @@ public:
 struct MySettings : public MIDI_NAMESPACE::DefaultSettings
 {
     static const bool Use1ByteParsing = false;
+    static const unsigned SysExMaxSize = 512;
 };
 
 END_BLEMIDI_NAMESPACE
